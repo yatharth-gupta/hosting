@@ -25,12 +25,14 @@ jobs:
         run: |
           git config user.name "${{ github.actor }}"
           git config user.email "${{ github.actor }}@users.noreply.github.com"
-          git checkout -b gh-pages
-          git add .
+          git checkout --orphan gh-pages
+          git reset
+          git add dist/* -f
+          git mv dist/* ./ -f
           git commit -m "Build Astro project for deployment"
 
       - name: Push to Deploy Branch
         uses: ad-m/github-push-action@master
         with:
           branch: gh-pages
-          directory: ./dist
+          directory: ./
