@@ -46,7 +46,12 @@ on:
   push:
     branches:
       - main
-
+      
+# Allow this job to clone the repo and create a page deployment  
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 # We define the jobs that the workflow will execute. Jobs are a series of steps that execute commands, scripts, or actions.
 jobs:
   # We define a single job named 'build'.
@@ -57,16 +62,10 @@ jobs:
     # We define the sequence of tasks (steps) to be executed as part of the job.
     steps:
       # We use the checkout action to checkout our repository's code onto the runner.
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       
-      # We set up a Node.js environment on the runner using the setup-node action.
-      - name: Setup node
-        uses: actions/setup-node@v2
-        with:
-          # We specify the version of Node.js to use.
-          node-version: '16'
-          # We check for the latest version of Node.js.
-          check-latest: true
+      - name: Install, build, and upload your site
+        uses: withastro/action@v0
       
       # We execute a series of shell commands.
       - run: |
