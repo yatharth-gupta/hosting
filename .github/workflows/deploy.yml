@@ -47,11 +47,6 @@ on:
     branches:
       - main
       
-# Allow this job to clone the repo and create a page deployment  
-permissions:
-  contents: read
-  pages: write
-  id-token: write
 # We define the jobs that the workflow will execute. Jobs are a series of steps that execute commands, scripts, or actions.
 jobs:
   # We define a single job named 'build'.
