@@ -17,7 +17,7 @@ jobs:
     # We define the sequence of tasks (steps) to be executed as part of the job.
     steps:
       # We use the checkout action to checkout our repository's code onto the runner.
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       
       - name: Install, build, and upload your site
         uses: withastro/action@v0
