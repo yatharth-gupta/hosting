@@ -62,8 +62,21 @@ jobs:
       - name: Install, build, and upload your site
         uses: withastro/action@v0
       
+      # We set up a Node.js environment on the runner using the setup-node action.
+      - name: Setup node
+        uses: actions/setup-node@v2
+        with:
+          # We specify the version of Node.js to use.
+          node-version: '16'
+          # We check for the latest version of Node.js.
+          check-latest: true
+      
       # We execute a series of shell commands.
       - run: |
+          # We run 'npm install' to install the dependencies specified in package.json.
+          npm install
+          # We build our application by running 'npm run build'.
+          npm run build
           # We configure Git with an email and username to associate with the commit.
           git config --local user.email "guptayatharth1@gmail.com"
           git config --local user.name "yatharth-gupta"
