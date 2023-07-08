@@ -7,7 +7,13 @@ export default defineConfig({
   site: 'https://yatharth-gupta.github.io',
   base: "/hosting/",
   build: {
-    assets: 'astro'
+    assets: 'astro',
+    rollupOptions: {
+        output: {
+          assetFileNames: 'assets/asset.[hash][extname]',
+        },
+      }
+
   },
   integrations: [react()]
 });
