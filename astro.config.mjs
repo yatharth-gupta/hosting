@@ -8,12 +8,15 @@ export default defineConfig({
   base: "/hosting/",
   build: {
     assets: 'astro',
-    rollupOptions: {
+  },
+  vite: {
+    build:{
+      rollupOptions: {
         output: {
           assetFileNames: 'assets/asset.[hash][extname]',
         },
       }
-
+    }
   },
   integrations: [react()]
 });
