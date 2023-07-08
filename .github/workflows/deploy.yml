@@ -6,6 +6,10 @@ on:
   push:
     branches:
       - main
+      
+include:  
+  - "_*_.html"  
+  - "_*_.*.html"
 
 # We define the jobs that the workflow will execute. Jobs are a series of steps that execute commands, scripts, or actions.
 jobs:
