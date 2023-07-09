@@ -13,6 +13,9 @@ export default defineConfig({
   build: {
     assets: 'astro',
   },
+  scripts: [
+    "https://unpkg.com/typewriter-effect@latest/dist/core.js"
+  ],
   // vite: {
   //   build:{
   //     rollupOptions: {
